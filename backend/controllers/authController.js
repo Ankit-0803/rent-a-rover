@@ -74,14 +74,14 @@ export const refreshToken = async (req, res, next) => {
         maxAge: 900000,
         sameSite: "None",
         secure: true,
-        domain: "rent-a-ride-two.vercel.app",
+        domain: "rentt-a-ride-two.vercel.app",
       }) // 15 minutes
       .cookie("refresh_token", newRefreshToken, {
         httpOnly: true,
         maxAge: 604800000,
         sameSite: "None",
         secure: true,
-        domain: "rent-a-ride-two.vercel.app",
+        domain: "rentt-a-ride-two.vercel.app",
       }) // 7 days
       .status(200)
       .json({ accessToken: newAccessToken, refreshToken: newRefreshToken });
@@ -135,14 +135,14 @@ export const signIn = async (req, res, next) => {
     //   maxAge: 900000,
     //   sameSite: "None",
     //   secure: true,
-    //   domain: "rent-a-ride-two.vercel.app"
+    //   domain: "rentt-a-ride-two.vercel.app"
     // }) // 15 minutes
     // .cookie("refresh_token", refreshToken, {
     //   httpOnly: true,
     //   maxAge: 604800000,
     //   sameSite: "None",
     //   secure: true,
-    //   domain: "rent-a-ride-two.vercel.app"
+    //   domain: "rentt-a-ride-two.vercel.app"
     // })
     // 7 days
 

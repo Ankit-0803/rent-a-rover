@@ -1,0 +1,9 @@
+MONGO_URI="mongodb+srv://ankitt7774:database1@cluster0.bjzmml5.mongodb.net/rentaride"
+PORT=3000
+JWT_SECRET=your_jwt_secret_key_123123
+JWT_EXPIRY="30d"
+accessTokenSecret=your_access_token_secret_123123
+accessTokenExpiry="30d"
+refreshTokenSecret=your_refresh_token_secret_123123
+refreshTokenExpiry="30d"
+ 

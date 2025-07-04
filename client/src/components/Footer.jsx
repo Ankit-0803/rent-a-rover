@@ -1,67 +1,71 @@
-
 import {
-    FooterCopyright,
-    FooterIcon,
-    FooterLink,
-    FooterLinkGroup,
-    FooterTitle,
-  } from "flowbite-react";
-  import {  BsGithub, BsInstagram, BsLinkedin, BsTwitter } from "react-icons/bs";
+  FooterCopyright,
+  FooterIcon,
+  FooterLink,
+  FooterLinkGroup,
+  FooterTitle,
+} from "flowbite-react";
+import {
+  BsGithub,
+  BsInstagram,
+  BsLinkedin,
+  BsTwitter,
+} from "react-icons/bs";
 
+const Footers = () => {
+  return (
+    <footer className="bg-[#0f0f0f] text-white px-6 py-12 mt-24 shadow-inner">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
 
- 
-  
-  const Footers  = () =>  {
-    
-    return (
-      <div  className="bg-black text-white lg:pt-[100px] pb-[100px] p-10 rounded-none mt-[100px] lg:mt-[200px]" >
-        <div className="w-full">
-          <div className="grid  w-full justify-between lg:px-10 sm:flex sm:justify-between md:flex md:grid-cols-1 gap-y-10 pb-10">
-            <div>
-              <div className="py-2 mb-5 font-bold text-[18px] lg:text-[24px]"><h1>Rent a Ride</h1></div>
-                
-               
-            </div>
-            <div className="grid grid-cols-2 gap-8 sm:mt-4 sm:grid-cols-3 sm:gap-6 ">
-              <div>
-                <FooterTitle title="about" className="text-justify" />
-                <FooterLinkGroup col>
-                  <FooterLink href="#">Rent a Ride</FooterLink>
-                  <FooterLink href="#">Car rental </FooterLink>
-                </FooterLinkGroup>
-              </div>
-              <div>
-                <FooterTitle title="Follow us" className="text-justify" />
-                <FooterLinkGroup col>
-                  <FooterLink href="https://github.com/jeevan-aj">Github</FooterLink>
-                  <FooterLink href="#">Discord</FooterLink>
-                </FooterLinkGroup>
-              </div>
-              <div>
-                <FooterTitle title="Legal" className="text-justify" />
-                <FooterLinkGroup col>
-                  <FooterLink href="#">Privacy Policy</FooterLink>
-                  <FooterLink href="#">Terms &amp; Conditions</FooterLink>
-                </FooterLinkGroup>
-              </div>
-            </div>
+          {/* Brand */}
+          <div>
+            <h1 className="text-2xl font-bold text-green-500 mb-4">Rent a Rover</h1>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              Reliable and affordable car rentals for every journey.
+            </p>
           </div>
-          <hr className="pt-10 lg:m-10 lg:px-10" />
-          <div className="w-full sm:flex sm:items-center sm:justify-between lg:px-10 ">
-            <FooterCopyright href="#" by="Rent a Ride" year={2024} />
-            <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
-              <FooterIcon href="https://www.linkedin.com/in/jeevan-joji-25b799275/" icon={BsLinkedin} />
-              <FooterIcon href="https://github.com/jeevan-aj" icon={BsGithub} />
-              <FooterIcon href="#" icon={BsInstagram} />
-              <FooterIcon href="#" icon={BsTwitter} />
-             
-             
-            </div>
+
+          {/* About */}
+          <div>
+            <h2 className="text-lg font-semibold text-white mb-3">About</h2>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li><FooterLink href="#">Rent a Rover</FooterLink></li>
+              <li><FooterLink href="#">Car Rental</FooterLink></li>
+            </ul>
+          </div>
+
+          {/* Follow Us */}
+          <div>
+            <h2 className="text-lg font-semibold text-white mb-3">Follow Us</h2>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li><FooterLink href="#">Github</FooterLink></li>
+              <li><FooterLink href="#">Discord</FooterLink></li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h2 className="text-lg font-semibold text-white mb-3">Legal</h2>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li><FooterLink href="#">Privacy Policy</FooterLink></li>
+              <li><FooterLink href="#">Terms & Conditions</FooterLink></li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-gray-700 pt-6 flex flex-col sm:flex-row items-center justify-between text-sm text-gray-500">
+          <FooterCopyright href="#" by="Rent a Rover" year={2025} />
+          <div className="flex gap-5 mt-4 sm:mt-0 text-xl">
+            <FooterIcon href="#" icon={BsLinkedin} className="hover:text-green-500" />
+            <FooterIcon href="#" icon={BsGithub} className="hover:text-green-500" />
+            <FooterIcon href="#" icon={BsInstagram} className="hover:text-green-500" />
+            <FooterIcon href="#" icon={BsTwitter} className="hover:text-green-500" />
           </div>
         </div>
       </div>
-    );
-  }
-  
+    </footer>
+  );
+};
 
-  export default Footers
+export default Footers;

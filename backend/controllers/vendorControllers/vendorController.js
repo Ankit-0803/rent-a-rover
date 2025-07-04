@@ -8,17 +8,29 @@ const expireDate = new Date(Date.now() + 3600000);
 
 export const vendorSignup = async (req, res, next) => {
   const { username, email, password } = req.body;
+ // Validate input
+  if (!username || !email || !password) {
+    return next(errorHandler(400, "All fields (username, email, password) are required"));
+  }
+
   try {
-    const hadshedPassword = bcryptjs.hashSync(password, 10);
+    // Check for duplicate email
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return next(errorHandler(409, "Email already registered"));
+    }
+
+    const hashedPassword = bcryptjs.hashSync(password, 10);
     const user = await User.create({
       username,
-      password: hadshedPassword,
+      password: hashedPassword,
       email,
       isVendor: true,
     });
-    await user.save();
-    res.status(200).json({ message: "vendor created successfully" });
+
+    res.status(200).json({ message: "Vendor created successfully" });
   } catch (error) {
+    console.error("Vendor Signup Error:", error); // helps in debugging
     next(error);
   }
 };

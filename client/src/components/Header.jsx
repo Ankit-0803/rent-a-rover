@@ -17,11 +17,10 @@ function Header() {
       className={`w-full   flex justify-between items-center px-6 sm:px-12 md:px-18 lg:py-6 lg:px-28 pt-10 mt-5 md:mt-10 sm:max-w-[900px] lg:max-w-[1500px] mx-auto `}
     >
       <Link to="/">
-        <div
-          className={` text-[16px] md:text-[18px] lg:text-[20px] font-poppins font-bold`}
-        >
-          Rent a Ride
-        </div>
+        <div className="text-[20px] md:text-[24px] lg:text-[28px] font-extrabold tracking-wide text-green-600">
+  Rent<span className="text-black"> a Ride</span>
+</div>
+
       </Link>
 
       <div className="hidden lg:block">
@@ -33,7 +32,8 @@ function Header() {
             >
               <Link
                 to={navlink.path}
-                className={`text-black  font-poppins cursor-pointer font-semibold`}
+               className="text-[17px] md:text-[18px] lg:text-[25px] text-black font-bold hover:text-green-600 transition"
+
               >
                 {navlink.title}
               </Link>

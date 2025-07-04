@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema(
     },
     phoneNumber:{
       type:String,
-      unique:true
+      default: null
     },
     adress:{
       type:String,
@@ -48,6 +48,13 @@ const userSchema = new mongoose.Schema(
     }
   },
   { timestamps: true }
+);
+userSchema.index(
+  { phoneNumber: 1 },
+  {
+    unique: true,
+    partialFilterExpression: { phoneNumber: { $type: 'string' } }
+  }
 );
 
 const User = mongoose.model("User", userSchema);

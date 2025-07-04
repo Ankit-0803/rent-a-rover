@@ -18,12 +18,15 @@ App.use(cookieParser())
 
 
 dotenv.config();
-const port = 3000;
+console.log("MONGO_URI Loaded:", process.env.MONGO_URI);
+const port = process.env.PORT || 3000;
+
 
 mongoose
-  .connect(process.env.mongo_uri)
-  .then(console.log("connected"))
-  .catch((error) => console.error(error));
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch((error) => console.error("Connection error:", error));
+
 
   
 
@@ -31,7 +34,7 @@ App.listen(port, () => {
   console.log("server listening !");
 });
 
-const allowedOrigins = ['https://rent-a-ride-two.vercel.app', 'http://localhost:5173']; // Add allowed origins here
+const allowedOrigins = ['https://rentt-a-ride-two.vercel.app', 'http://localhost:5173']; // Add allowed origins here
 
 App.use(
   cors({
@@ -42,7 +45,7 @@ App.use(
 );
 
 
-App.use('*', cloudinaryConfig);
+App.use(cloudinaryConfig);
 
 // App.get('/*', (req, res) => res.sendFile(resolve(__dirname, '../public/index.html')));
 

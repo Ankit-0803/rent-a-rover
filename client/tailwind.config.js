@@ -8,12 +8,21 @@ const tailwindConfig = {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  theme: {
+    theme: {
     extend: {
       backgroundImage: {
         'hero-pattern':
-          "url('/Users/jeevan/copy/Rent a drive/client/src/pages/admin/data/welcome-bg.svg')",
-      }
+          "url('D:\Rent-a-Ride\client\src\pages\admin\data\welcome.png')",
+      },
+      animation: {
+        slide: "slide 20s linear infinite",
+      },
+      keyframes: {
+        slide: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
     },
   },
   plugins: [
@@ -21,6 +30,16 @@ const tailwindConfig = {
     // addVariablesForColors // Assuming addVariablesForColors is defined somewhere in your code
   ],
 };
+
+
+
+const combinedConfig = {
+  ...defaultTheme, // Merge defaultTheme
+  ...tailwindConfig // Merge tailwindConfig
+};
+
+export default combinedConfig;
+
 
 // This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
 // function addVariablesForColors({ addBase, theme }) {
@@ -33,10 +52,3 @@ const tailwindConfig = {
 //     ":root": newVars,
 //   });
 // }
-
-const combinedConfig = {
-  ...defaultTheme, // Merge defaultTheme
-  ...tailwindConfig // Merge tailwindConfig
-};
-
-export default combinedConfig;

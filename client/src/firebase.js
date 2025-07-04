@@ -6,9 +6,9 @@ import { initializeApp } from "@firebase/app";
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: "rent-a-ride-5af16.firebaseapp.com",
-  projectId: "rent-a-ride-5af16",
-  storageBucket: "rent-a-ride-5af16.appspot.com",
+  authDomain: "rentt-a-ride-5af16.firebaseapp.com",
+  projectId: "rentt-a-ride-5af16",
+  storageBucket: "rentt-a-ride-5af16.appspot.com",
   messagingSenderId: "1068277218849",
   appId: "1:1068277218849:web:8966754aa388cea132ed60"
 };
