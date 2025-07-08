@@ -22,34 +22,6 @@ const schema = z.object({
   password: z.string().min(1, { message: "password required" }),
 });
 
-// export const refreshToken = async (dispatch,getState) => {
-//   const { authSlice } = getState();
-
-//   if (!authSlice.refreshToken) {
-//     // No refresh token available, handle the situation (e.g., log out the user)
-//     dispatch(logout());
-//     return;
-//   }
-
-//   try {
-//     const res = await fetch('/api/auth/refresh', {
-//       method: 'POST',
-//       credentials: 'include', // Include cookies in the request
-//     });
-
-//     const data = await res.json();
-
-//     if (!res.ok) {
-//       dispatch(refreshTokenFailure(data));
-//       return;
-//     }
-
-//     // The server should set the new access token and refresh token in the response cookies
-//     dispatch(refreshTokenSuccess(data));
-//   } catch (err) {
-//     dispatch(signInFailure(err));
-//   }
-// }
 
 function SignIn() {
   const {
@@ -70,6 +42,7 @@ function SignIn() {
       const res = await fetch(`${BASE_URL}/api/auth/signin`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        credentials: "include",
         body: JSON.stringify(formData),
       });
       const data = await res.json();
@@ -200,3 +173,32 @@ function SignIn() {
 }
 
 export default SignIn;
+
+// export const refreshToken = async (dispatch,getState) => {
+//   const { authSlice } = getState();
+
+//   if (!authSlice.refreshToken) {
+//     // No refresh token available, handle the situation (e.g., log out the user)
+//     dispatch(logout());
+//     return;
+//   }
+
+//   try {
+//     const res = await fetch('/api/auth/refresh', {
+//       method: 'POST',
+//       credentials: 'include', // Include cookies in the request
+//     });
+
+//     const data = await res.json();
+
+//     if (!res.ok) {
+//       dispatch(refreshTokenFailure(data));
+//       return;
+//     }
+
+//     // The server should set the new access token and refresh token in the response cookies
+//     dispatch(refreshTokenSuccess(data));
+//   } catch (err) {
+//     dispatch(signInFailure(err));
+//   }
+// 

@@ -17,7 +17,7 @@ import VendorPrivateRoute from "./components/VendorPrivateRoute";
 import VendorDashboard from "./pages/vendor/Dashboard/VendorDashboard";
 
 import Layout from "./pages/admin/layouts/Layout";
-// import AddProductForm from "./pages/admin/dashboard/AddProductForm";
+// import AddProductForm ffrom "./pages/admin/dashboard/AddProductForm";
 import AdminDashNew from "./pages/admin/dashboard/AdminDashNew";
 import VehicleDetails from "./pages/user/VehicleDetails";
 import EditProductComponent from "./pages/admin/components/EditProductComponent";

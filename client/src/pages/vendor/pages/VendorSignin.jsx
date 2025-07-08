@@ -32,29 +32,37 @@ function VendorSignin() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const onSubmit = async (formData, e) => {
-    e.preventDefault();
-    try {
-      dispatch(signInStart());
-      const res = await fetch("api/vendor/vendorsignin", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
-      const data = await res.json();
+const onSubmit = async (formData, e) => {
+  e.preventDefault();
+  const BASE_URL = import.meta.env.VITE_PRODUCTION_BACKEND_URL;
 
-      if (data.succes === false) {
-        dispatch(signInFailure(data));
-        return;
-      }
-      if (data.isVendor) {
-        navigate("/vendorDashboard");
-        dispatch(signInSuccess(data));
-      }
-    } catch (error) {
-      dispatch(signInFailure(error));
+  try {
+    dispatch(signInStart());
+    const res = await fetch(`${BASE_URL}/api/vendor/vendorsignin`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      credentials: "include", // ✅ send/receive cookies across domains
+      body: JSON.stringify(formData),
+    });
+
+    const data = await res.json();
+
+    if (data.succes === false || !res.ok) {
+      dispatch(signInFailure(data));
+      return;
     }
-  };
+
+    if (data.isVendor) {
+      dispatch(signInSuccess(data));
+      navigate("/vendorDashboard");
+    } else {
+      dispatch(signInFailure("Invalid vendor credentials"));
+    }
+  } catch (error) {
+    dispatch(signInFailure(error));
+  }
+};
+
 
   return (
     <>
