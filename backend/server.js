@@ -9,33 +9,19 @@ import cors from 'cors'
 import cookieParser from "cookie-parser";
 import { cloudinaryConfig } from "./utils/cloudinaryConfig.js";
 
-
-const App = express();
-
-
-App.use(express.json());
-App.use(cookieParser())
-
-
+// Load environment variables
 dotenv.config();
 console.log("MONGO_URI Loaded:", process.env.MONGO_URI);
+
+// App initialization
+const App = express();
 const port = process.env.PORT || 3000;
 
-
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB connected"))
-  .catch((error) => console.error("Connection error:", error));
-
-
-  
-
-App.listen(port, () => {
-  console.log("server listening !");
-});
-
-const allowedOrigins = ['https://rentt-a-ride-two.vercel.app', 'http://localhost:5173']; // Add allowed origins here
-
+//  CORS must be added BEFORE routes and any middleware
+const allowedOrigins = [
+  'https://rent-a-rover-v1.vercel.app',   // ✅ Your production frontend
+  'http://localhost:5173'                 // ✅ Local dev
+];
 App.use(
   cors({
     origin: allowedOrigins,
@@ -43,20 +29,23 @@ App.use(
     credentials: true, // Enables the Access-Control-Allow-Credentials header
   })
 );
+// Middleware setup
+App.use(express.json());
+App.use(cookieParser());
+App.use(cloudinaryConfig);  // Cloudinary config if needed
 
-
-App.use(cloudinaryConfig);
-
-// App.get('/*', (req, res) => res.sendFile(resolve(__dirname, '../public/index.html')));
-
-
+//MongoDB connection
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => console.log("✅ MongoDB connected"))
+  .catch((error) => console.error("Connection error:", error));
+// Routes setup
 App.use("/api/user", userRoute);
 App.use("/api/auth", authRoute);
 App.use("/api/admin",adminRoute);
 App.use("/api/vendor",vendorRoute)
 
-
-
+// Error handling middleware
 App.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || "internal server error";
@@ -65,4 +54,7 @@ App.use((err, req, res, next) => {
     message,
     statusCode,
   });
+});
+App.listen(port, () => {
+  console.log("server listening !");
 });
