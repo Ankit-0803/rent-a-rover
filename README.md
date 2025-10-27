@@ -40,6 +40,7 @@ To run the project locally, follow these simple steps:
    npm install
    cd client && npm install
 2. **Set Up Environment Variables**
+   ```bash
 MONGO_URI=<your_mongodb_uri>
 JWT_SECRET=<your_jwt_secret>
 RAZORPAY_KEY_ID=<your_razorpay_key_id>
@@ -51,6 +52,7 @@ GOOGLE_CLIENT_ID=<your_google_client_id>
 GOOGLE_CLIENT_SECRET=<your_google_client_secret>
 
 3. **Run the Development Server**
+   ```bash
 npm run dev
 
 
