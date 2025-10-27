@@ -2,7 +2,7 @@
 
 **Rent-a-Rover** is a **multi-vendor car rental platform** that enables seamless booking, vendor management, and secure payments through an integrated dashboard system. It provides dedicated modules for **Users**, **Vendors**, and **Admins**, each with role-based access, real-time updates, and optimized user workflows.
 
-🔗 **Live Demo:** [https://rent-a-rover-v1.vercel.app/](https://rent-a-rover-v1.vercel.app/](https://vercel.com/ankits-projects-e5e956df/rent-a-rover-v2)  
+🔗 **Live Demo:** https://vercel.com/ankits-projects-e5e956df/rent-a-rover-v2
 ---
 
 ## 🧩 Tech Stack
