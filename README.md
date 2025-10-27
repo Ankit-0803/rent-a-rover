@@ -2,7 +2,7 @@
 
 **Rent-a-Rover** is a **multi-vendor car rental platform** that enables seamless booking, vendor management, and secure payments through an integrated dashboard system. It provides dedicated modules for **Users**, **Vendors**, and **Admins**, each with role-based access, real-time updates, and optimized user workflows.
 
-🔗 **Live Demo:** [https://rent-a-rover-v1.vercel.app/](https://rent-a-rover-v1.vercel.app/)  
+🔗 **Live Demo:** [https://rent-a-rover-v1.vercel.app/](https://rent-a-rover-v1.vercel.app/](https://vercel.com/ankits-projects-e5e956df/rent-a-rover-v2)  
 ---
 
 ## 🧩 Tech Stack
@@ -41,18 +41,18 @@ To run the project locally, follow these simple steps:
    cd client && npm install
 2. **Set Up Environment Variables**
    ```bash
-MONGO_URI=<your_mongodb_uri>
-JWT_SECRET=<your_jwt_secret>
-RAZORPAY_KEY_ID=<your_razorpay_key_id>
-RAZORPAY_KEY_SECRET=<your_razorpay_key_secret>
-CLOUDINARY_CLOUD_NAME=<your_cloudinary_cloud_name>
-CLOUDINARY_API_KEY=<your_cloudinary_api_key>
-CLOUDINARY_API_SECRET=<your_cloudinary_api_secret>
-GOOGLE_CLIENT_ID=<your_google_client_id>
-GOOGLE_CLIENT_SECRET=<your_google_client_secret>
+   MONGO_URI=<your_mongodb_uri>
+   JWT_SECRET=<your_jwt_secret>
+   RAZORPAY_KEY_ID=<your_razorpay_key_id>
+   RAZORPAY_KEY_SECRET=<your_razorpay_key_secret>
+   CLOUDINARY_CLOUD_NAME=<your_cloudinary_cloud_name>
+   CLOUDINARY_API_KEY=<your_cloudinary_api_key>
+   CLOUDINARY_API_SECRET=<your_cloudinary_api_secret>
+   GOOGLE_CLIENT_ID=<your_google_client_id>
+   GOOGLE_CLIENT_SECRET=<your_google_client_secret>
 
 3. **Run the Development Server**
    ```bash
-npm run dev
+   npm run dev
 
 
