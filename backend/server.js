@@ -19,13 +19,15 @@ const port = process.env.PORT || 3000;
 
 //  CORS must be added BEFORE routes and any middleware
 const allowedOrigins = [
-  'https://rent-a-rover-v1.vercel.app',   // ✅ Your production frontend
-  'http://localhost:5173'                 // ✅ Local dev
+  'https://rent-a-rover-v1.vercel.app',
+  'https://rent-a-rover-v2.vercel.app',  // ✅ Your production frontend
+  'http://localhost:5173',
+  'http://localhost:5174'               // ✅ Local dev
 ];
 App.use(
   cors({
     origin: allowedOrigins,
-    methods:['GET', 'PUT', 'POST' ,'PATCH','DELETE'],
+    methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE'],
     credentials: true, // Enables the Access-Control-Allow-Credentials header
   })
 );
@@ -42,8 +44,8 @@ mongoose
 // Routes setup
 App.use("/api/user", userRoute);
 App.use("/api/auth", authRoute);
-App.use("/api/admin",adminRoute);
-App.use("/api/vendor",vendorRoute)
+App.use("/api/admin", adminRoute);
+App.use("/api/vendor", vendorRoute)
 
 // Error handling middleware
 App.use((err, req, res, next) => {
